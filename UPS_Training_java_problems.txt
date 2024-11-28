@@ -1,0 +1,660 @@
+Problem 1:
+class Box<T> {
+    private T content;
+    public Box(T content) {
+        this.content = content;
+    }
+    public void setContent(T content) {
+        this.content = content;
+    }
+    public T getContent() {
+        return content;
+    }
+    public void display() {
+        System.out.println("Content: " + content);
+    }
+}
+public class Generic {
+    public static void main(String[] args) {
+        Box<Integer> intBox = new Box<>(123);
+        intBox.display();
+        Box<String> strBox = new Box<>("Hello, Generics!");
+        strBox.display(); 
+        Box<Double> doubleBox = new Box<>(45.67);
+        doubleBox.display(); 
+    }
+}
+
+Problem 2:
+import java.util.*;
+public class Intersection {
+public static void main(String[] args) {
+		List<Integer> list1=new ArrayList<>();
+		List<Integer> list2=new ArrayList<>();
+		list1.add(10);
+		list1.add(20);
+		list1.add(30);
+		list2.add(10);
+		list2.add(20);
+		list2.add(40);
+		for(int i=0;i<list1.size();i++) {
+			for(int j=0;j<list2.size();j++) {
+				if(list1.get(i)==list2.get(j)){
+						System.out.print(list1.get(i)+" ");
+				}
+			}}
+		}
+}
+
+Problem 3:
+import java.util.*;
+public class Iterate_hash {
+
+	public static void main(String[] args) {
+		HashMap<Integer,Integer> zig=new HashMap<>();
+		zig.put(10, 20);
+		zig.put(20,30);
+		zig.put(30, 40);
+		for(Map.Entry<Integer,Integer>i:zig.entrySet()) {
+			System.out.println(i.getKey()+" "+i.getValue());
+		}
+
+	}
+
+}
+
+Problem 4:
+import java.util.*;
+public class Merge_map {
+
+	public static void main(String[] args) {
+		Map<String,Integer> map1 =new HashMap<>();
+		Map<String,Integer> map2 =new HashMap<>();
+		map2.put("David", 40);
+        map2.put("Eva", 28);
+        map1.put("Alice", 30);
+        map1.put("Bob", 25);
+        map1.put("Charlie", 35);
+        map2.putAll(map1);
+        System.out.print(map2);
+
+
+	}
+
+}
+Problem 5:
+import java.util.*;
+public class merge {
+
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		int n1,n2;
+		int i;
+		n1=s.nextInt();
+		n2=s.nextInt();
+		int arr[]=new int[n1];
+		int arr2[]=new int[n2];
+		for(i=0;i<n1;i++) {
+			arr[i]=s.nextInt();
+		}
+		for(i=0;i<n2;i++) {
+			arr2[i]=s.nextInt();
+		}
+		int arr3[]=new int[n1+n2];
+		for(i=0;i<n1;i++) {
+			arr3[i]=arr[i];
+		}
+		int k=0;
+		for(i=n1;i<n1+n2;i++) {
+			arr3[i]=arr2[k++];
+		}
+		for(int x:arr3) {
+			System.out.print(x+" ");
+		}
+		int min;
+		int j;
+		int temp;
+		for(i=0;i<n1+n2;i++) {
+			min=i;
+			for(j=i+1;j<n1+n2-1;j++) {
+				if(arr3[min]>arr3[j]) {
+					min=j;
+				}
+			}
+			temp=arr3[i];
+			arr3[i]=arr3[min];
+			arr3[min]=temp;
+		}
+		System.out.println();
+		for(int num :arr3) {
+			System.out.print(num + " ");
+		}
+	}
+
+}
+
+Problem 6:
+import java.util.*;
+public class Min_pos {
+
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		int n=s.nextInt();
+		int i;
+		int arr[]=new int[n];
+		for(i=0;i<n;i++) {
+			arr[i]=s.nextInt();
+		}
+		for(i=0;i<n;i++) {
+			if(arr[i]<0) {
+				arr[i]=0;
+			}
+		}
+		Arrays.sort(arr);
+		for(i=0;i<n-1;i++) {
+			if((arr[i+1]-arr[i])!=1) {
+				System.out.print(arr[i]+1);
+			}
+		}
+
+	}
+
+}
+
+Problem 7:
+import java.util.*;
+public class Min_stack {
+	public static int findMin(Stack<Integer> stack) {
+        
+        int min = Integer.MAX_VALUE;
+        for (int num : stack) {
+            if (num < min) {
+                min = num;
+            }
+        }
+        
+        return min;
+    }
+public static void main(String[] args) {
+		Stack<Integer> s=new Stack<>();
+		Stack<Integer> s2=new Stack<>();
+		s.push(30);
+		s.push(29);
+		s.push(18);
+		s.push(15);
+		s.push(16);
+		int x=findMin(s);
+		for(int num: s) {
+			if(num!=x) {
+				s2.push(num);
+			}
+			else {
+				break;
+			}
+			
+			
+		}
+		System.out.println(s2);
+		
+	}
+
+}
+
+Problem 8:
+import java.util.*;
+
+public class Sec_lar {
+
+	public static void main(String[] args) {
+		List<Integer> s=new ArrayList<>();
+		  s.add(40);
+		  s.add(30);
+		  s.add(20);
+		  s.add(10);
+		  s.add(40);
+		 Set<Integer>st=new TreeSet<>(s);
+		 System.out.println(st);
+}
+
+}
+Problem 9:
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class Shuffle_arr {
+
+	public static void main(String[] args) {
+		List<Integer> s=new ArrayList<>();
+		  s.add(10);
+		  s.add(20);
+		  s.add(30);
+		  s.add(60);
+		  s.add(40);
+		 Collections.shuffle(s);
+		 System.out.print(s);
+
+	}
+
+}
+
+Problem 10:
+import java.util.*;
+public class Sort_stack {
+
+     public static void popByValue(Stack<Integer> stack, int value) {
+       if (stack.isEmpty()) {
+            return;
+        }
+        int top = stack.pop();
+
+        if (top != value) {
+            popByValue(stack, value);
+            stack.push(top);
+        }
+    }
+     public static int findMin(Stack<Integer> stack) {
+         
+         int min = Integer.MAX_VALUE;
+         for (int num : stack) {
+             if (num < min) {
+                 min = num;
+             }
+         }
+         
+         return min;
+     }
+     
+
+    public static void main(String[] args) {
+        Stack<Integer> stack = new Stack<>();
+        Stack<Integer> s1 = new Stack<>();
+        stack.push(11);
+        stack.push(31);
+        stack.push(10);
+        stack.push(8);
+        stack.push(50);
+        int n=stack.size();
+        for(int i=0;i<n;i++) {
+        	
+        	s1.push(findMin(stack));
+        	popByValue(stack,findMin(stack));
+        	
+        }
+        System.out.println(s1);
+    }
+}
+
+Problem 11:
+import java.util.*;
+public class Sort_Strings {
+
+	public static void main(String[] args) {
+		List<String> str=new ArrayList<>();
+		str.add("Jeeva");
+		str.add("kanna");
+		str.add("Priya");
+		Set<String> st=new TreeSet<>(str);
+		System.out.print(st);
+
+	}
+
+}
+
+Problem 12:
+import java.util.*;
+
+
+public class Spiral_mat {
+    public static List<Integer> spiralOrder(int[][] matrix) {
+        List<Integer> result = new ArrayList<>();
+        if (matrix == null || matrix.length == 0) return result;
+
+        int top = 0;
+        int bottom = matrix.length - 1;
+        int left = 0;
+        int right = matrix[0].length - 1;
+
+        while (top <= bottom && left <= right) {
+            // Traverse from left to right along the top row
+            for (int i = left; i <= right; i++) {
+                result.add(matrix[top][i]);
+            }
+            top++;  // Move the top boundary down
+
+            // Traverse from top to bottom along the right column
+            for (int i = top; i <= bottom; i++) {
+                result.add(matrix[i][right]);
+            }
+            right--;  // Move the right boundary left
+
+            if (top <= bottom) {
+                // Traverse from right to left along the bottom row
+                for (int i = right; i >= left; i--) {
+                    result.add(matrix[bottom][i]);
+                }
+                bottom--;  // Move the bottom boundary up
+            }
+
+            if (left <= right) {
+                // Traverse from bottom to top along the left column
+                for (int i = bottom; i >= top; i--) {
+                    result.add(matrix[i][left]);
+                }
+                left++;  // Move the left boundary right
+            }
+        }
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+        int[][] matrix = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+        };
+
+        List<Integer> spiralOrder = spiralOrder(matrix);
+        System.out.println(spiralOrder);  // Output: [1, 2, 3, 6, 9, 8, 7, 4, 5]
+    }
+}
+
+Problem 13:
+
+import java.util.Stack;
+
+public class Stack_prob {
+
+    public static void main(String[] args) {
+        Stack<Integer> stack = new Stack<>();
+        stack.push(60);
+        stack.push(20);
+        stack.push(30);
+        stack.push(40);
+        System.out.println("Stack: " + stack);
+        System.out.println("Top element (peek): " + stack.peek());
+        System.out.println("Popped element: " + stack.pop());
+        System.out.println("Popped element: " + stack.pop());
+        System.out.println("Stack after popping: " + stack);
+        System.out.println("Is stack empty? " + stack.isEmpty());
+        int position = stack.search(10);
+        if (position != -1) {
+            System.out.println("Element 10 found at position: " + position);
+        } else {
+            System.out.println("Element 10 not found in the stack.");
+        }
+    }
+}
+
+Problem 14:
+import java.util.*;
+public class String_met {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int cou=0;
+		StringBuilder s=new StringBuilder();
+		System.out.print("Enter the string");
+		s.append(sc.nextLine());
+		String str=s.toString();
+		String vowels="aeiouAEIOU";
+		for( char c:str.toCharArray()) {
+			
+			if(vowels.contains(String.valueOf(c))) {
+				cou++;
+			}
+			
+		}
+		System.out.print(cou);
+		
+	}
+
+}
+
+Problem 15:
+import java.util.*;
+public class Valid_paran{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        ArrayList<Character>list=new ArrayList<>();
+        String s=sc.next();
+        for(int i=0;i<s.length();i++){
+            if(s.charAt(i)=='('){
+                list.add(s.charAt(i));
+            }
+            else if(s.charAt(i)==')'){
+                if(list.size()!=0){
+                    list.remove(list.size()-1);
+                }
+                else{
+                    list.add(s.charAt(i));
+                    break;
+                }
+            }
+        }
+        if(list.size()==0){
+            System.out.print("balanced");
+        }
+        else{
+            System.out.print("not balanced");
+        }
+    }
+}
+
+Problem 16:
+import java.util.*;
+public class Valid_paran{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        ArrayList<Character>list=new ArrayList<>();
+        String s=sc.next();
+        for(int i=0;i<s.length();i++){
+            if(s.charAt(i)=='('){
+                list.add(s.charAt(i));
+            }
+            else if(s.charAt(i)==')'){
+                if(list.size()!=0){
+                    list.remove(list.size()-1);
+                }
+                else{
+                    list.add(s.charAt(i));
+                    break;
+                }
+            }
+        }
+        if(list.size()==0){
+            System.out.print("balanced");
+        }
+        else{
+            System.out.print("not balanced");
+        }
+    }
+}
+
+Problem 17:
+import java.util.*;
+public class Map_pract {
+
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		List<String> str=new ArrayList<>();
+		List<Integer> lst=new ArrayList<>();
+        int n=5;
+        for(int i=0;i<n;i++) {
+        	str.add(s.next());
+        }
+        Map<String,Integer> map=new HashMap<>();
+        for(String st: str) {
+        	map.put(st, map.getOrDefault(st, 0) + 1);
+        }
+        for (Integer value : map.values()) {
+            lst.add(value);
+        }
+        int min=Collections.max(lst);
+        for (Map.Entry<String, Integer> ent : map.entrySet()) {
+        	if(ent.getValue()==min) {
+        		System.out.println(ent.getKey());
+        	}
+        }
+
+
+        System.out.println(map);
+	}
+
+}
+
+Problem 18:
+import java.util.*;
+
+class Employee {
+    private String name;
+    private double salary;
+    private String department;
+
+    public Employee(String name, double salary, String department) {
+        this.name = name;
+        this.salary = salary;
+        this.department = department;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public String toString() {
+        return "Employee{name='" + name + "', salary=" + salary + ", department='" + department + "'}";
+    }
+}
+
+public class Sort_lambda {
+    public static void main(String[] args) {
+        List<Employee> employees = new ArrayList<>();
+        employees.add(new Employee("John", 60000, "IT"));
+        employees.add(new Employee("Alice", 75000, "HR"));
+        employees.add(new Employee("Bob", 55000, "Sales"));
+        employees.add(new Employee("Alice", 80000, "IT"));
+        employees.add(new Employee("David", 60000, "HR"));
+        employees.add(new Employee("John", 50000, "Sales"));
+        System.out.println("Sorting by name:");
+        employees.sort(Comparator.comparing(Employee::getName));
+        employees.forEach(System.out::println);
+
+        System.out.println("\nSorting by salary:");
+        employees.sort(Comparator.comparing(Employee::getSalary));
+        employees.forEach(System.out::println);
+
+        System.out.println("\nSorting by department:");
+        employees.sort(Comparator.comparing(Employee::getDepartment));
+        employees.forEach(System.out::println);
+
+       
+    }
+}
+
+Problem 19:
+
+import java.util.*;
+
+public class Stream_contains {
+    public static void main(String[] args) {
+        List<String> sentences = Arrays.asList("Hello world", "World of Java", "Hello Java world");
+        String mostFrequentWord = findMostFrequentWord(sentences);
+        System.out.println("Most frequent word: " + mostFrequentWord);
+    }
+
+    public static String findMostFrequentWord(List<String> sentences) {
+        Map<String, Integer> wordCountMap = new HashMap<>();
+        for (String sentence : sentences) {
+            sentence = sentence.toLowerCase();
+            System.out.println(sentence);
+            String[] words = sentence.split("\\s+");
+            for (String word : words) {
+                if (!word.isEmpty()) {
+                    wordCountMap.put(word, wordCountMap.getOrDefault(word, 0) + 1);
+                }
+            }
+        }
+        String mostFrequentWord = null;
+        int maxCount = 0;
+
+        for (Map.Entry<String, Integer> entry : wordCountMap.entrySet()) {
+            if (entry.getValue() > maxCount) {
+                mostFrequentWord = entry.getKey();
+                maxCount = entry.getValue();
+            }
+        }
+
+        return mostFrequentWord;
+    }
+}
+
+Problem 20:
+import java.util.*;
+public class Sub_array {
+
+	public static void main(String[] args) {
+		ArrayList<Integer> a=new ArrayList<>();
+		a.add(2);
+		a.add(3);
+		a.add(1);
+		a.add(2);
+		a.add(4);
+		a.add(3);
+		int sum=0;
+		int x=7;
+		int count=0;
+		for(int i=0;i<a.size();i++) {
+			count++;
+			sum+=a.get(i);
+			if(sum==7) {
+				System.out.println(count);
+			}
+			else if(sum>7) {
+				count=0;
+				sum=0;
+			}
+		}
+	}
+
+}
+
+Problem 21:
+import java.util.*;
+
+public class Validpar {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        System.out.println(longestValidParentheses(s));
+    }
+
+    public static int longestValidParentheses(String s) {
+        Stack<Integer> stack = new Stack<>();
+        stack.push(-1);
+        int maxLength = 0;
+
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == '(') {
+                stack.push(i);
+            } else {
+                stack.pop();
+                if (stack.isEmpty()) {
+                    stack.push(i); 
+                } else {
+                    maxLength = Math.max(maxLength, i - stack.peek());
+                }
+            }
+        }
+
+        return maxLength;
+    }
+}
